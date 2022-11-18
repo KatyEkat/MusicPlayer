@@ -19,12 +19,14 @@ function App() {
         <Container />
         <div>
           <Main />
+        </div>
+        <div>
             <Navigation />
             <CenterBlock />
             <Sidebar />
-
+            <Bar />
         </div>
-        <Bar />
+
         <Footer />
       </div>
     </div>
