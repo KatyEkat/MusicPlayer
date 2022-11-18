@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Wrapper from './components/Wrapper';
+import './index.css';
 
 
 
