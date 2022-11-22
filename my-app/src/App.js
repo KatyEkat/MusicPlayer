@@ -7,28 +7,52 @@ import Main from './components/Main';
 import Navigation from './components/Navigation';
 import Sidebar from './components/Sidebar';
 import Wrapper from './components/Wrapper';
+import Burger from './components/Burger';
 import './index.css';
 
+
+// function App() {
+//   return (
+//     <Wrapper>
+//       <div>
+//         <Container>
+//           <main>
+//             <Main>
+//               <Navigation>
+
+//               </Navigation>
+//               <CenterBlock />
+//               <Sidebar />
+//             </Main>
+//           </main>
+
+//           <Bar />
+//           <Footer />
+//         </Container>
+//       </div>
+//     </Wrapper>
+
+//   );
+// }
 
 
 function App() {
   return (
     <div>
-      <Wrapper />
-      <div>
-        <Container />
-        <div>
-          <Main />
-        </div>
-        <div>
+      <Wrapper> 
+        <Container>
+          <Main>
             <Navigation />
+            <Burger />
             <CenterBlock />
             <Sidebar />
+          </Main>
+          <div>
             <Bar />
-        </div>
-
-        <Footer />
-      </div>
+          </div>
+            <Footer />
+        </Container>
+      </Wrapper>
     </div>
   );
 }

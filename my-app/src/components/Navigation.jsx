@@ -8,11 +8,7 @@ const Navigation = () => {
         <div className="nav__logo logo">
           <img className="logo__image" src="/images/logo.png" alt="logo"></img>
         </div>
-        <div className="nav__burger burger">
-          <span className="burger__line"></span>
-          <span className="burger__line"></span>
-          <span className="burger__line"></span>
-        </div>
+        
         <div className="nav__menu menu">
           <ul className="menu__list">
             <li className="menu__item">
