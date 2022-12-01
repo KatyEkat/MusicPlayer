@@ -8,9 +8,9 @@
     padding: 210px 0 0 0;
 }
 .navigationMenu__link {
-width: 250px;
-height: 150px;
-border: none;
+    width: 250px;
+    height: 150px;
+    border: none;
 }
 .navigationMenu__link_daily-playList {
  background-image: url(../../images/playlist01.png);

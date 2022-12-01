@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './components/Main/Main.css';
 import Header from './components/Header/Header';
 import CenterBlock from "./components/CenterBlock/CenterBlock";
 import NavigationMenu from "./components/NavigationMenu/NavigationMenu";
