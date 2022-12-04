@@ -1,0 +1,7 @@
+{
+    "git.confirmSync": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
