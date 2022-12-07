@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import './App.css';
-import './components/Main/Main.css';
+import './App.module.css';
+import './components/Main/Main.module.css';
 import Header from './components/Header/Header';
 import CenterBlock from "./components/CenterBlock/CenterBlock";
 import NavigationMenu from "./components/NavigationMenu/NavigationMenu";

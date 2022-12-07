@@ -4,7 +4,7 @@ import Header from "../Header/Header"
 import Player from "../Player/Player";
 import CenterBlock from "../CenterBlock/CenterBlock";
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
-import "./Main.css";
+import "./Main.module.css";
 
 
 function Main() { 

@@ -1,7 +1,7 @@
 // import React, {useEffect} from "react";
 import React from "react";
 import Track from "../Track/Track";
-import "./CenterBlock.css";
+import "./CenterBlock.module.css";
 import { Fragment } from "react";
 import { bool } from 'prop-types';
 // import ContentLoader from "react-content-loader";

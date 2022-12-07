@@ -1,5 +1,5 @@
 import React from "react";
-import "./BurgerMenu.css";
+import "./BurgerMenu.module.css";
 import { Fragment } from 'react';
 
 

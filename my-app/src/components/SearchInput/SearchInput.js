@@ -1,6 +1,6 @@
 
 import React from 'react'
-import "./SearchInput.css";
+import "./SearchInput.module.css";
 
 
 
