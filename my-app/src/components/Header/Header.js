@@ -1,11 +1,11 @@
 import Logo from "../Logo/Logo";
 import SearchInput from "../SearchInput/SearchInput"
 import React from 'react'
-import  * as styles from "./Header.module.css";
+import "./Header.module.css";
 
 const Header = ()  => {  
   return (
-    <div className={styles["header"]}>
+    <div className="header">
       <Logo />
       <SearchInput />
     </div>
