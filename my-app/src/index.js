@@ -1,36 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// import {BrowserRouter} from "react-router-dom";
 import App from './App'; 
 
-/* 
-const burgeritem = document.querySelector(".menu__list");
-const burgerMenu = document.querySelector(".nav__burger");
-
-
-burgerMenu.addEventListener("click",burgerHandler);
-
-function burgerHandler () {
- burgeritem.classList.toggle("open");
-}
-
- */
-
-
-
-
-
-
-
-
-
-
+// import 'index.css';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <BrowserRouter> */}
+      <App />
+    {/* </BrowserRouter> */}
   </React.StrictMode>
 );
 
