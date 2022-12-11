@@ -1,5 +1,5 @@
 import React from "react";
-import "./BurgerMenu.module.css";
+import styles from "./BurgerMenu.module.css";
 import { Fragment } from 'react';
 
 
@@ -9,21 +9,21 @@ function BurgerMenu() {
       setBurgerMenuOpen(!isBurgerMenuOpen)
     }
     return (
-        <div className={`burger-menu`}>
+        <div className={styles["burger-menu"]}>
             {/* По клику на бургер открывается фрагмент с меню с лева */}
-            <button className="burger-menu__close-btn" type="button" onClick = {toggleBurgerMenuOpen}/>
+            <button className={styles["burger-menu__close-btn"]} type="button" onClick = {toggleBurgerMenuOpen}/>
                  {isBurgerMenuOpen && (
                     <Fragment>
-                        <div className="burger-menu__link-list">
-                            <a exact to="/" className="burger-menu__link" >
+                        <div className={styles["burger-menu__link-list"]}>
+                            <a to="/" className={styles["burger-menu__link"]} >
                                 Главное
                             </a>
 
-                            <a to="/user-playlist" className="burger-menu__link" >
+                            <a to="/user-playlist" className={styles["burger-menu__link"]} >
                                 Мои треки
                             </a>
 
-                            <a to="/signin" className="burger-menu__link" >
+                            <a to="/signin" className={styles["burger-menu__link"]} >
                                 Выйти
                             </a>
                         </div> 

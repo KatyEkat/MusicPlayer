@@ -1,10 +1,10 @@
 import React from 'react'
 import logoWhite from "../../images/logoWhite.png";
-import "./Logo.module.css";
+import styles from"./Logo.module.css";
 
 function Logo() {
   return (
-      <img className="logo" src={logoWhite} alt="Логотип" />
+      <img className={styles["logo"]} src={logoWhite} alt="Логотип" />
   );
 }
 

@@ -7,7 +7,7 @@ type Props = {
 export const AudioPlayer = ({audioSource}: Props) => {
     const audio = useRef(audioSource);
 
-    const [volume, setVolume] = useState(audio.current.volume);
+    // const [volume, setVolume] = useState(audio.current.volume);
     const [duration, setDuration] = useState(0);
     const [progress, setProgress] = useState(0);
 

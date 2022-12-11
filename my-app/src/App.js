@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import './App.module.css';
-import './components/Main/Main.module.css';
+import moduleStyle from './App.module.css';
+import styles from './components/Main/Main.module.css';
 import Header from './components/Header/Header';
 import CenterBlock from "./components/CenterBlock/CenterBlock";
 import NavigationMenu from "./components/NavigationMenu/NavigationMenu";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import ContentLoader from "react-content-loader";
 import Skeleton from "../src/Skeletons/SkeletonCenterBlock";
 
 
@@ -20,9 +19,9 @@ function App() {
 
   return (
     isLoadingSkeleton ? <Skeleton /> :
-    <div className="App">  
+    <div className={moduleStyle["App"]}>  
       <Header/>
-      <section className="main">          
+      <section className={styles["main"]}>          
         <BurgerMenu/>
         <CenterBlock/>
         <NavigationMenu/>

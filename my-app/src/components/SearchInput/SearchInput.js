@@ -1,14 +1,14 @@
 
 import React from 'react'
-import "./SearchInput.module.css";
+import styles from "./SearchInput.module.css";
 
 
 
 function SearchInput () {
   
   return (
-    <input className='header__input' placeholder='Поиск'></input>
+    <input className={styles['header__input']} placeholder='Поиск'></input>
   );
-};
+}
 
 export default SearchInput;

@@ -88,7 +88,7 @@
     width: 60px;  
 }
 
-.centerBlock__filter-genres{
+.searchMenuAuthor__item{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -97,7 +97,7 @@
     color: #FFFFFF;
 
 }
-.centerBlock__filter-genres:hover{
+.searchMenuAuthor__item:hover{
     color: #B672FF;
 }
 
