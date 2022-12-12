@@ -5,7 +5,7 @@ function NavigationMenu() {
     return (
         <div className={styles["navigationMenu"]}>
             <button className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_daily_playList}`} ></button>
-            <button className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_top-100}`}></button>
+            <button className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_top_100}`}></button>
             <button className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_indy}`}></button>
         </div>
     );
