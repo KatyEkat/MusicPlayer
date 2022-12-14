@@ -67,8 +67,6 @@ function CenterBlock({ isLoading }) {
                                 <a className={styles["searchMenuAuthor__item"]}>Arctic Monkeys</a>
                                 <a className={styles["searchMenuAuthor__item"]}>Eminem</a>
                             </div>
-
-                            {/* const Div = styles.div`` */}
                         </Fragment>
                     )}
                 </div>
@@ -149,8 +147,8 @@ function CenterBlock({ isLoading }) {
                 </div>
             </div>
             <div className={styles["audioPlayer"]}>
-            {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
-            <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
+                {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
+                <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
             </div>
             
         </div>

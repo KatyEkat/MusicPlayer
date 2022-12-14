@@ -15,15 +15,15 @@ function BurgerMenu() {
                  {isBurgerMenuOpen && (
                     <Fragment>
                         <div className={styles["burger-menu__link-list"]}>
-                            <a to="/" className={styles["burger-menu__link"]} >
+                            <a to="/music" className={styles["burger-menu__link"]} >
                                 Главное
                             </a>
 
-                            <a to="/user-playlist" className={styles["burger-menu__link"]} >
+                            <a to="/" className={styles["burger-menu__link"]} >
                                 Мои треки
                             </a>
 
-                            <a to="/signin" className={styles["burger-menu__link"]} >
+                            <a to="/login" className={styles["burger-menu__link"]} >
                                 Выйти
                             </a>
                         </div> 

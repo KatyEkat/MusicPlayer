@@ -3,7 +3,9 @@
     /* margin-right: auto;     */
     max-width: 673px;
     margin-right: 161px;
+    
 }
+
 .centerBlock__title {
     font-family: 'Roboto';
     font-style: normal;
@@ -14,6 +16,7 @@
     letter-spacing: -0.8px;
     margin-bottom: 45px;
 }
+
 .centerBlock__filter {
     display: flex;
     gap: 15px;
@@ -21,6 +24,7 @@
     margin-bottom: 51px;
     max-height: fit-content;
 }
+
 .centerBlock__filter_title{
     color: white;
     font-family: 'Roboto';
@@ -61,6 +65,7 @@
     font-size: 16px;
     line-height: 24px;
 }
+
 .centerblock__playlist-title{
     display: flex;
     font-family: 'Roboto';
@@ -148,7 +153,7 @@
     height: 73px;
     background: #1C1C1C;
 }
-
+/* 
 .centerBlock__filter_opening{
 
-}
+} */

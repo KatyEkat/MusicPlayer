@@ -1,0 +1,74 @@
+.background{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+.logIn{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    width: 366px;
+    height: 439px;
+    background: #ffffff;
+    border-radius: 12px;
+    gap: 20px;
+}
+.login_input{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    width: 278px;
+    height: 52px;
+    /* border: none; */
+    border-color: #D0CECE;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.login_btn{
+    width: 278px;
+    height: 52px;
+    left: 41px;
+    top: 268px;
+    background: #580EA2;
+    border-radius: 6px;
+    border: #580EA2;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+}
+.login_btn:hover{
+    background: #3F007D;
+}
+.login_btn:active{
+    background: #271A58;
+}
+
+.register_btn{
+    width: 278px;
+    height: 52px;
+    left: 41px;
+    top: 268px;
+    background: #ffffff;
+    border: 1px solid #D0CECE;
+    border-radius: 6px;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+}
+.register_btn:hover{
+    background: #F4F5F6;
+}
+.register_btn:active{
+    background: #D9D9D9;
+}
