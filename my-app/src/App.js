@@ -8,6 +8,8 @@ import Registration from "./pages/Registration/Registration";
 import PlayListOfTheDay from "./pages/PlaylistOfTheDay/PlaylistOfTheDay";
 import Top100 from "./pages/Top100/Top100";
 import IndyPlaylist from "./pages/IndyPlaylist/IndyPlaylist"
+import { PrivateRoute } from "./components/Navigation/PrivateRoute";
+import { PublicRoute } from "./components/Navigation/PublicRoute";
 
 
 
@@ -18,12 +20,12 @@ function App() {
       <BrowserRouter>
         <Switch>
           {/* component={()=><HomeContainer/>} */}
-          <Route exact path={"/login"} component={() => <Login/>}/>
-          <Route exact path={"/registration"} component={()=> <Registration/>}/>
-          <Route exact path={"/music"} component={Main}/>
-          <Route exact path={"/playlist_of_the_day"} component={PlayListOfTheDay}/>
-          <Route exact path={"/top_100"} component={Top100}/>
-          <Route exact path={"/indy_playlist"} component={IndyPlaylist}/>
+          <PublicRoute  exact path={"/login"} component={Login}/>
+          <PublicRoute exact path={"/registration"} component={Registration}/>
+          <PrivateRoute exact path={"/music"} component={Main}/>
+          <PrivateRoute exact path={"/playlist_of_the_day"} component={PlayListOfTheDay}/>
+          <PrivateRoute exact path={"/top_100"} component={Top100}/>
+          <PrivateRoute exact path={"/indy_playlist"} component={IndyPlaylist}/>
           <Route exact path={"*"} component={NotFound}/>
           
 

@@ -14,6 +14,7 @@ function Login () {
     }
 
     const onMusic = () => {
+        localStorage.setItem("token", 2)
         history.push("/music")
     }
     

@@ -1,13 +1,21 @@
 import React from "react";
 import styles from "./BurgerMenu.module.css";
 import { Fragment } from 'react';
+import {NavLink, useHistory} from "react-router-dom";
 
 
 function BurgerMenu() {
+    const history = useHistory();
+
     const [isBurgerMenuOpen, setBurgerMenuOpen] = React.useState(false)
     const toggleBurgerMenuOpen = () => {
       setBurgerMenuOpen(!isBurgerMenuOpen)
     }
+    const onLogOut = () => {
+        localStorage.removeItem("token");
+        history.push("/login");
+    }
+
     return (
         <div className={styles["burger-menu"]}>
             {/* По клику на бургер открывается фрагмент с меню с лева */}
@@ -15,17 +23,12 @@ function BurgerMenu() {
                  {isBurgerMenuOpen && (
                     <Fragment>
                         <div className={styles["burger-menu__link-list"]}>
-                            <a to="/music" className={styles["burger-menu__link"]} >
-                                Главное
-                            </a>
 
-                            <a to="/" className={styles["burger-menu__link"]} >
-                                Мои треки
-                            </a>
+                            <NavLink className={styles["burger-menu__link"]} to = "/music" > Главное </NavLink>
 
-                            <a to="/login" className={styles["burger-menu__link"]} >
-                                Выйти
-                            </a>
+                            <NavLink className={styles["burger-menu__link"]} to = "/" > Мои треки </NavLink>
+
+                            <NavLink className={styles["burger-menu__link"]} to = "/login" onClick={onLogOut} > Выйти </NavLink>
                         </div> 
                     </Fragment>
                 )}

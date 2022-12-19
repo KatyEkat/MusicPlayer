@@ -6,12 +6,15 @@ import { Fragment } from 'react';
 
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Fragment>
 
+    {/* <Login />  */}
+
     <App />
-    {/* <Login /> */}
+
 
 
   </Fragment>
