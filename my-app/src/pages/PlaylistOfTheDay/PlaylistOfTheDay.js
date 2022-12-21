@@ -55,10 +55,10 @@ function PlayListOfTheDay({ isLoading }) {
                         </div>
                     </div>
 
-                    <div className={styles["audioPlayer"]}>
+                    {/* <div className={styles["audioPlayer"]}>
                         {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
-                        {/* <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/> */}
-                    </div>
+                        {/* <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
+                    </div> */}
 
                 </div>
             </Fragment>

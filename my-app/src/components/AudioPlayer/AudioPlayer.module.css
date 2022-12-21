@@ -1,0 +1,54 @@
+button{
+    background: transparent;
+    border: none;
+}
+.play_btn{
+    width: 22px;
+    height: 20px;
+    background-image: url(../../images/icon/play.svg);
+    background-repeat: no-repeat;
+    /* background: transparent; */
+}
+.play_btn:hover{
+    background-image: url(../../images/icon/playHover.svg);
+    background-repeat: no-repeat;
+}
+.play_btn:active{
+    background-image: url(../../images/icon/playActive.svg);
+}
+
+.pause_btn{
+    width: 22px;
+    height: 20px;
+    background-image: url(../../images/icon/pause.svg);
+    background-repeat: no-repeat;
+}
+.pause_btn:hover{
+    background-image: url(../../images/icon/pauseHover.svg);
+    background-repeat: no-repeat;
+}
+
+.pause_btn:active{
+    background-image: url(../../images/icon/pauseActive.svg);
+    background-repeat: no-repeat;
+}
+
+.loop{
+    background-image: url(../../images/icon/repeat.svg);
+    background-repeat: no-repeat;
+}
+
+.loop:hover{
+    background-image: url(../../images/icon/repeatHover.svg);
+    background-repeat: no-repeat;
+}
+
+.loop:active{
+    background-image: url(../../images/icon/repeatActive.svg);
+    background-repeat: no-repeat;
+}
+
+.music_progress{
+    width: 100%;
+    background-color: #2E2E2E; 
+}
