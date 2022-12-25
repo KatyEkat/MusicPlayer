@@ -1,3 +1,9 @@
+.audio_player_styles{
+    display: flex;
+    margin-top: 10px;
+}
+
+
 button{
     background: transparent;
     border: none;
@@ -7,7 +13,6 @@ button{
     height: 20px;
     background-image: url(../../images/icon/play.svg);
     background-repeat: no-repeat;
-    /* background: transparent; */
 }
 .play_btn:hover{
     background-image: url(../../images/icon/playHover.svg);
@@ -34,21 +39,118 @@ button{
 }
 
 .loop{
-    background-image: url(../../images/icon/repeat.svg);
+    width: 24px;
+    height: 20px;   
+    background-image: url(../../images/icon/loop.svg);
     background-repeat: no-repeat;
 }
 
 .loop:hover{
-    background-image: url(../../images/icon/repeatHover.svg);
+    background-image: url(../../images/icon/loopHover.svg);
     background-repeat: no-repeat;
 }
 
-.loop:active{
-    background-image: url(../../images/icon/repeatActive.svg);
+.loop_active{
+    width: 24px;
+    height: 20px;   
+    background-image: url(../../images/icon/loopAcive.svg);
     background-repeat: no-repeat;
 }
 
 .music_progress{
     width: 100%;
     background-color: #2E2E2E; 
+}
+
+.previous_track{
+    background-image: url(../../images/icon/prev.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 36px;
+    margin-right: 33px;
+}
+
+.previous_track:hover{
+    background-image: url(../../images/icon/prevLight.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 36px;
+    margin-right: 33px;
+}
+
+.next_track{
+    background-image: url(../../images/icon/next.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.next_track:hover{
+    background-image: url(../../images/icon/nextLight.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.shuffle_track{
+    background-image: url(../../images/icon/shuffle.svg);
+    width: 24px;
+    height: 20px; 
+    background-repeat: no-repeat;
+    margin-left: 35px;
+}
+.shuffle_track:hover{
+    background-image: url(../../images/icon/shuffleHover.svg);
+    width: 24px;
+    height: 20px; 
+}
+.shuffle_track:active{
+    background-image: url(../../images/icon/shuffleActive.svg);
+    width: 24px;
+    height: 20px; 
+}
+
+.like_btn{
+    background-image: url(../../images/icon/like.svg);
+    width: 16px;
+    height: 14px;
+    margin-left: 32px;
+    margin-right: 39px;
+}
+
+.like_btn:hover{
+    background-image: url(../../images/icon/likeHover.svg);
+    width: 16px;
+    height: 14px;
+}
+.like_btn:active{
+    background-image: url(../../images/icon/likeActive.svg);
+    width: 16px;
+    height: 14px;
+}
+
+.dislike_btn{
+    background-image: url(../../images/icon/dislike.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+}
+.dislike_btn:hover{
+    background-image: url(../../images/icon/dislikeHover.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+}
+.dislike_btn:active{
+    background-image: url(../../images/icon/dislikeActive.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+}
+
+.volume_btn{
+    margin-right: 36px;
+    margin-left: 950px;
 }

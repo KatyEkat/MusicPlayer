@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 // import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import { Fragment } from "react";
 import stylesApp from "../../App.module.css";
+import { NavLink } from "react-router-dom";
 
 function NotFound () {
 
@@ -25,9 +26,9 @@ function NotFound () {
                         Возможно она была удалена или перенесена на другой адресс
                     </p>
 
-                    <button className={styles["notFound_btn"]}>
+                    <NavLink className={styles["notFound_btn"]} to="/music">
                         Вернуться на главную
-                    </button>
+                    </NavLink>
                 </section>
             </Fragment>
             {/* <AudioPlayer /> */}

@@ -58,4 +58,7 @@
     font-size: 18px;
     line-height: 24px;
     color: #FFFFFF;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }

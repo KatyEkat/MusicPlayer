@@ -1,20 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App'; 
-// import Login from "./pages/LogIn/Login";
+
 import { Fragment } from 'react';
-
-
-
+import { ThemeProvider } from './Providers/ThemeProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Fragment>
 
-    {/* <Login />  */}
+    <ThemeProvider>
+      
+      <App />
 
-    <App />
-
+    </ThemeProvider>
 
 
   </Fragment>

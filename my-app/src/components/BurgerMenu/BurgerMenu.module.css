@@ -34,3 +34,15 @@
     margin-left: 36px;
     width: 244px;
 }
+
+.burger-menu__link_change_theme_dark{
+    background-image: url(../../images/icon/btnThemeDark.svg);
+    width: 39px;
+    height: 40px;
+}
+.burger-menu__link_change_theme_light{
+    background-image: url(../../images/icon/btnThemeLight.svg); 
+    width: 39px;
+    height: 40px;
+}
+

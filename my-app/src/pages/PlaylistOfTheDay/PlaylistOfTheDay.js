@@ -7,7 +7,7 @@ import Skeleton from "../../components/Skeletons/SkeletonCenterBlock";
 import { Fragment } from "react";
 import { bool } from 'prop-types';
 import Track from "../../components/Track/Track";
-// import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import {AudioPlayer} from "../../components/AudioPlayer/AudioPlayer";
 
 
 function PlayListOfTheDay({ isLoading }) { 
@@ -55,10 +55,10 @@ function PlayListOfTheDay({ isLoading }) {
                         </div>
                     </div>
 
-                    {/* <div className={styles["audioPlayer"]}>
-                        {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
-                        {/* <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
-                    </div> */}
+                    <div className={styles["audioPlayer"]}>
+                        
+                       <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
+                    </div> 
 
                 </div>
             </Fragment>
