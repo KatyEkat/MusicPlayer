@@ -7,10 +7,13 @@ import Skeleton from "../../components/Skeletons/SkeletonCenterBlock";
 import { Fragment } from "react";
 import { bool } from 'prop-types';
 import Track from "../../components/Track/Track";
-// import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
+import {AudioPlayer} from "../../components/AudioPlayer/AudioPlayer";
+import { useTheme } from "../../Providers/ThemeProvider";
+import { Title } from "../../components/Title/Title";
 
 
 function PlayListOfTheDay({ isLoading }) { 
+    const {theme} = useTheme();
 
     PlayListOfTheDay.propTypes = {
         isLoading: bool,
@@ -25,14 +28,14 @@ function PlayListOfTheDay({ isLoading }) {
 
     return ( 
         isLoadingSkeleton ? <Skeleton /> :
-        <div className={moduleStyle["App"]}>  
+        <div className={moduleStyle["App"]}  style={{backgroundColor:theme.background}}>  
         <Header/>
         
         <section className={styles["main"]}>          
             <BurgerMenu/>
             <Fragment>
                 <div className={styles["centerBlock"]}>
-                    <h1 className={styles["centerBlock__title"]}>Инди заряд</h1>
+                    <Title theme={theme}>Инди заряд</Title>
 
                     <div className={styles["centerblock__content"]}>
 
@@ -56,7 +59,7 @@ function PlayListOfTheDay({ isLoading }) {
 
                     <div className={styles["audioPlayer"]}>
                         {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
-                        {/* <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/> */}
+                        <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
                     </div>
 
                 </div>

@@ -5,12 +5,17 @@ import styles from "./CenterBlock.module.css";
 import { Fragment } from "react";
 import { bool } from 'prop-types';
 import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
+import { Title } from "../Title/Title";
+import { useTheme } from "../../Providers/ThemeProvider";
+import { Subtitle } from "../Title/Subtitle";
+import { Buttons } from "../Title/Buttons";
 
 
 function CenterBlock({ isLoading }) {
     CenterBlock.propTypes = {
         isLoading: bool,
     }
+    const {theme} = useTheme()
 // инициализация закрытых пунктов меню Автор
     const [isSearchMenuAuthorOpen, setSearchMenuAuthorOpen] =
         React.useState(false)
@@ -47,20 +52,18 @@ function CenterBlock({ isLoading }) {
     return (
         // isLoadingSkeleton ? <Skeleton /> :
         <div className={styles["centerBlock"]}>
-            <h2 className={styles["centerBlock__title"]}>Треки</h2>
+            <Title theme={theme}>Треки</Title> 
             <div className={styles["centerBlock__filter"]}>
-                <h3 className={styles["centerBlock__filter_title"]}>Искать по:</h3>
+                <Subtitle theme={theme}>Искать по:</Subtitle>
                 <div>
-                    <button
-                        className={styles["centerBlock__filter_btn"]}
-                        onClick={toggleBurgerMenuOpen}
-                    >
-                        исполнителю
-                    </button>
+
+                    <Buttons theme={theme} className={styles["centerBlock__filter_btn"]} onClick={toggleBurgerMenuOpen}> исполнителю
+                    </Buttons>
+
                     {isSearchMenuAuthorOpen && (
                         <Fragment>
                             <div className={`${styles.searchMenu} ${styles.searchMenu_Author}`} >
-                                <a className={styles["searchMenuAuthor__item"]}>Michael Jackson</a>
+                                <a  className={styles["searchMenuAuthor__item"]}>Michael Jackson</a>
                                 <a className={styles["searchMenuAuthor__item"]}>Frank Sinatra</a>
                                 <a className={styles["searchMenuAuthor__item"]}>Calvin Harris</a>
                                 <a className={styles["searchMenuAuthor__item"]}>Zhu</a>
@@ -72,12 +75,10 @@ function CenterBlock({ isLoading }) {
                 </div>
                 
                 <div>
-                    <button
-                        className={styles["centerBlock__filter_btn"]}
-                        onClick={toggleSearchMenuYearOpen}
-                    >
-                        году выпуска
-                    </button>
+                   
+                    <Buttons theme={theme} className={styles["centerBlock__filter_btn"]} onClick={toggleSearchMenuYearOpen}> году выпуска
+                    </Buttons>
+
                     {isSearchMenuYearOpen && (
                         <Fragment>
                             <div className= {`${styles.searchMenu} ${styles.searchMenu_Year}`}>
@@ -105,12 +106,9 @@ function CenterBlock({ isLoading }) {
                     )}
                 </div>
                 <div>
-                    <button
-                        className={styles["centerBlock__filter_btn"]}
-                        onClick={toggleSearchMenuGenreOpen}
-                    >
-                        жанру
-                    </button>
+                    <Buttons theme={theme} className={styles["centerBlock__filter_btn"]} onClick={toggleSearchMenuGenreOpen}> жанру
+                    </Buttons>
+
                     {isSearchMenuGenreOpen && (
                         <Fragment>
                             <div className= {`${styles.searchMenu} ${styles.searchMenu_Genre}`}>

@@ -5,6 +5,7 @@ import LogoDark from "../../components/LogoDark/LogoDark";
 // import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import stylesApp from "../../App.module.css";
+// import { BASE_URL } from "../../Consts/API";
 
 function Login () {
     const history = useHistory();
@@ -16,6 +17,18 @@ function Login () {
     const onMusic = () => {
         localStorage.setItem("token", 2)
         history.push("/music")
+
+        //Логин/пароль позже перенести в отдельный файл
+        // fetch(BASE_URL+"/user/token/", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         "email": "root@mepwmeow.com",
+        //         "password": "123456789Az"
+        //     })
+        // })
     }
     
     return(

@@ -3,10 +3,12 @@ import styles from "./BurgerMenu.module.css";
 import { Fragment } from 'react';
 import {NavLink, useHistory} from "react-router-dom";
 import { useTheme } from "../../Providers/ThemeProvider";
+// import { Burger } from "../Title/Burger";
 
 
 
 function BurgerMenu() {
+    // const {theme} = useTheme()
     const history = useHistory();
     const {themeMode, changeTheme} = useTheme();
 
