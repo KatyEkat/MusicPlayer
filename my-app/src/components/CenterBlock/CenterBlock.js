@@ -1,5 +1,5 @@
 // import React, {useEffect} from "react";
-import React from "react";
+import React, { useEffect } from "react";
 import Track from "../Track/Track";
 import styles from "./CenterBlock.module.css";
 import { Fragment } from "react";
@@ -9,6 +9,9 @@ import { Title } from "../Title/Title";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { Subtitle } from "../Title/Subtitle";
 import { Buttons } from "../Title/Buttons";
+import { get } from "../../Utils/Fetch";
+
+
 
 
 function CenterBlock({ isLoading }) {
@@ -23,6 +26,15 @@ function CenterBlock({ isLoading }) {
     const [isSearchMenuGenreOpen, setSearchMenuGenreOpen] = React.useState(false)
 // инициализация закрытых пунктов меню год
     const [isSearchMenuYearOpen, setSearchMenuYearOpen] = React.useState(false)
+
+    useEffect(()=> {
+        onGetAllTrack()
+    }, [])
+
+    const onGetAllTrack = async() => {
+        const {json} = await get("/catalog/track/all/")
+        console.log(json);
+    }
 
     // год открыт закрыт
     const toggleSearchMenuYearOpen = () => {

@@ -1,34 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "./Login.module.css";
 import { Fragment } from "react";
 import LogoDark from "../../components/LogoDark/LogoDark";
 // import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import stylesApp from "../../App.module.css";
+import { post } from "../../Utils/Fetch";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../Consts/Backups";
 // import { BASE_URL } from "../../Consts/API";
 
 function Login () {
     const history = useHistory();
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState("");
+
 
     const onRegistration = () => {
         history.push("/registration")
     }
 
-    const onMusic = () => {
-        localStorage.setItem("token", 2)
-        history.push("/music")
-
-        //Логин/пароль позже перенести в отдельный файл
-        // fetch(BASE_URL+"/user/token/", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         "email": "root@mepwmeow.com",
-        //         "password": "123456789Az"
-        //     })
-        // })
+    const onMusic = async () => {
+        const {code, json} = await post("/user/token/", {email, password});
+        if (code===200) {
+            localStorage.setItem(REFRESH_TOKEN, json.refresh)
+            localStorage.setItem(ACCESS_TOKEN, json.access)
+            history.push("/music")
+        } 
     }
     
     return(
@@ -36,8 +33,20 @@ function Login () {
             <div className={` ${stylesApp.App} ${styles.background}`}>
                 <div className={styles["logIn"]}>
                     <LogoDark/>
-                    <input className={styles["login_input"]} placeholder="Логин"></input>
-                    <input className={styles["login_input"]} placeholder="Пароль"></input>
+                    <input 
+                        value={email} 
+                        onChange={event=> setEmail(event.target.value)}
+                        className={styles["login_input"]} 
+                        placeholder="Электронная адресс">
+                    </input>
+
+                    <input 
+                        value={password} 
+                        onChange={event=> setPassword(event.target.value)}
+                        className={styles["login_input"]} 
+                        placeholder="Пароль">
+                    </input>
+
                     <button className={styles["login_btn"]} onClick = {onMusic}>Войти</button>
                     <button className={styles["register_btn"]} onClick = {onRegistration} >Зарегистрироваться</button>
                     {/* <Link to={"/registration"} >Зарегистрироваться</Link> */}

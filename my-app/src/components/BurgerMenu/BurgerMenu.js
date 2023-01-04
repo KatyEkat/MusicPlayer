@@ -3,12 +3,13 @@ import styles from "./BurgerMenu.module.css";
 import { Fragment } from 'react';
 import {NavLink, useHistory} from "react-router-dom";
 import { useTheme } from "../../Providers/ThemeProvider";
-// import { Burger } from "../Title/Burger";
+import { REFRESH_TOKEN } from "../../Consts/Backups";
+import { Burger } from "../Title/Burger";
 
 
 
 function BurgerMenu() {
-    // const {theme} = useTheme()
+    const {theme} = useTheme()
     const history = useHistory();
     const {themeMode, changeTheme} = useTheme();
 
@@ -17,7 +18,7 @@ function BurgerMenu() {
       setBurgerMenuOpen(!isBurgerMenuOpen)
     }
     const onLogOut = () => {
-        localStorage.removeItem("token");
+        localStorage.removeItem(REFRESH_TOKEN);
         history.push("/login");
     }
 
@@ -31,18 +32,24 @@ function BurgerMenu() {
             <button className={styles["burger-menu__close-btn"]} type="button" onClick = {toggleBurgerMenuOpen}/>
                  {isBurgerMenuOpen && (
                     <Fragment>
-                        <div className={styles["burger-menu__link-list"]}>
-
-                            <NavLink className={styles["burger-menu__link"]} to = "/music" > Главное </NavLink>
-
-                            <NavLink className={styles["burger-menu__link"]} to = "/music" > Мои треки </NavLink>
-
-                            <NavLink className={styles["burger-menu__link"]} to = "/login" onClick={onLogOut} > Выйти </NavLink>
-
-                            <button className={styles[`burger-menu__link_change_theme_${themeMode}`]} onClick={onChangeTheme}> </button> 
+                        <Burger  theme={theme}>
                             
-                        
-                        </div> 
+                            <div className={styles["burger-menu__link-list"]}>
+
+                                
+                                <NavLink className={styles["burger-menu__link"]} to = "/music" > Главное </NavLink>
+                            
+
+                                <NavLink className={styles["burger-menu__link"]} to = "/music" > Мои треки </NavLink>
+
+                                <NavLink className={styles["burger-menu__link"]} to = "/login" onClick={onLogOut} > Выйти </NavLink>
+                                
+
+                                <button className={styles[`burger-menu__link_change_theme_${themeMode}`]} onClick={onChangeTheme}> </button> 
+                                
+                            
+                            </div> 
+                        </Burger>
                     </Fragment>
                 )}
         </div>
