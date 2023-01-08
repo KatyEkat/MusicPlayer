@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import styles from "./Login.module.css";
 import { Fragment } from "react";
-import LogoDark from "../../components/LogoDark/LogoDark";
+
 // import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import stylesApp from "../../App.module.css";
 import { post } from "../../Utils/Fetch";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../Consts/Backups";
+import Logo from "../../components/Logo/Logo";
 // import { BASE_URL } from "../../Consts/API";
 
 function Login () {
@@ -32,7 +33,7 @@ function Login () {
         <Fragment>
             <div className={` ${stylesApp.App} ${styles.background}`}>
                 <div className={styles["logIn"]}>
-                    <LogoDark/>
+                    <Logo/>
                     <input 
                         value={email} 
                         onChange={event=> setEmail(event.target.value)}

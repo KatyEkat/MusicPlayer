@@ -9,7 +9,7 @@ import { bool } from 'prop-types';
 import Track from "../../components/Track/Track";
 import {AudioPlayer} from "../../components/AudioPlayer/AudioPlayer";
 import { useTheme } from "../../Providers/ThemeProvider";
-import { Title } from "../../components/Title/Title";
+import { Title } from "../../components/Themes/Title";
 
 
 function PlayListOfTheDay({ isLoading }) { 

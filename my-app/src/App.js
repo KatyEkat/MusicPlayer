@@ -10,6 +10,7 @@ import Top100 from "./pages/Top100/Top100";
 import IndyPlaylist from "./pages/IndyPlaylist/IndyPlaylist"
 import { PrivateRoute } from "./components/Navigation/PrivateRoute";
 import { PublicRoute } from "./components/Navigation/PublicRoute";
+import FavoriteTracks from "./pages/FavoriteTracks/FavoriteTracks";
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <PrivateRoute exact path={"/playlist_of_the_day"} component={PlayListOfTheDay}/>
           <PrivateRoute exact path={"/top_100"} component={Top100}/>
           <PrivateRoute exact path={"/indy_playlist"} component={IndyPlaylist}/>
+          <PrivateRoute exact path={"/favorite"} component={FavoriteTracks}/>
           <Route exact path={"*"} component={NotFound}/>
           
 

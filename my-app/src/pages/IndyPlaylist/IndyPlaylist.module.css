@@ -63,3 +63,8 @@
     height: 73px;
     background: #1C1C1C;
 }
+
+.main_flex{
+    display: flex;
+    flex-direction: column;
+}

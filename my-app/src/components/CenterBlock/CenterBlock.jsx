@@ -3,21 +3,27 @@ import React, { useEffect } from "react";
 import Track from "../Track/Track";
 import styles from "./CenterBlock.module.css";
 import { Fragment } from "react";
-import { bool } from 'prop-types';
+import { func, array, object } from 'prop-types';
 import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
-import { Title } from "../Title/Title";
 import { useTheme } from "../../Providers/ThemeProvider";
-import { Subtitle } from "../Title/Subtitle";
-import { Buttons } from "../Title/Buttons";
+import { Subtitle } from "../Themes/Subtitle";
+import { Buttons } from "../Themes/Buttons";
 import { get } from "../../Utils/Fetch";
+import { connect } from "react-redux";
+import { setTracks, nextTrack, prevTrack } from "../../Redux/Track/TracksActions";
 
 
 
 
-function CenterBlock({ isLoading }) {
+function CenterBlock({ setTracks, tracks, track, nextTrack, prevTrack }) {
     CenterBlock.propTypes = {
-        isLoading: bool,
+        setTracks: func,
+        tracks: array,
+        track: object,
+        nextTrack: func,
+        prevTrack:func
     }
+
     const {theme} = useTheme()
 // инициализация закрытых пунктов меню Автор
     const [isSearchMenuAuthorOpen, setSearchMenuAuthorOpen] =
@@ -29,11 +35,12 @@ function CenterBlock({ isLoading }) {
 
     useEffect(()=> {
         onGetAllTrack()
+        
     }, [])
 
     const onGetAllTrack = async() => {
         const {json} = await get("/catalog/track/all/")
-        console.log(json);
+        setTracks(json);
     }
 
     // год открыт закрыт
@@ -59,12 +66,15 @@ function CenterBlock({ isLoading }) {
         setSearchMenuAuthorOpen(false)
         setSearchMenuGenreOpen(false)
         setSearchMenuYearOpen(false)
+        console.log(track);
     }
+
+
 
     return (
         // isLoadingSkeleton ? <Skeleton /> :
         <div className={styles["centerBlock"]}>
-            <Title theme={theme}>Треки</Title> 
+             
             <div className={styles["centerBlock__filter"]}>
                 <Subtitle theme={theme}>Искать по:</Subtitle>
                 <div>
@@ -143,27 +153,27 @@ function CenterBlock({ isLoading }) {
                     <div className={styles["col4"]}>◴</div>
                 </div>
                 <div className={styles["centerblock__playlist"]}>
-                    
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
-                    <Track isLoading={isLoading} />
+                    {tracks.map(track => <Track key={track.id} track={track} /> )}
+
                 </div>
             </div>
             <div className={styles["audioPlayer"]}>
-                {/* принимает внутрь аудиосорс из аудиоплеера(пропс) */}
-                <AudioPlayer audioSource={new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")}/>
+                
+                <AudioPlayer 
+                    key={track.track_file} 
+                    audioSource={new Audio(track.track_file)}
+                    onNext={nextTrack}
+                    onPrev={prevTrack}
+                />
             </div>
             
         </div>
     )
 }
 
+const gatState = (state) => ({
+    track: state.tracks.track,
+    tracks: state.tracks.tracks
+})
 
-export default CenterBlock
+export default connect(gatState, {setTracks, nextTrack, prevTrack})(CenterBlock)
