@@ -8,9 +8,13 @@ import styles from "../Main/Main.module.css";
 import Skeleton from "../../components/Skeletons/SkeletonCenterBlock";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { Title } from "../../components/Themes/Title";
+import { get } from "../../Utils/Fetch";
+import { setTracks } from "../../Redux/Track/TracksActions";
+import { connect } from "react-redux";
 
 
-function Main() { 
+// eslint-disable-next-line react/prop-types
+function Main({setTracks}) { 
     const {theme} = useTheme();
 
 
@@ -19,8 +23,15 @@ function Main() {
 
     useEffect(() => {
         setTimeout (() => setIsLoadingSkeleton(false), 1000);
+        onGetAllTrack()
     }, [])
     console.log(theme);
+
+    const onGetAllTrack = async() => {
+        const {json} = await get("/catalog/track/all/")
+        setTracks(json);
+    }
+
     
     return ( 
         isLoadingSkeleton ? <Skeleton /> :
@@ -38,4 +49,4 @@ function Main() {
     )
 } 
  
-export default Main; 
+export default connect(null, {setTracks})(Main)

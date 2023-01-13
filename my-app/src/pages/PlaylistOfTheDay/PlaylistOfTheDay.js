@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; 
+import React, { useEffect, useState } from "react"; 
 import moduleStyle from './../../App.module.css';
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import Header from "../../components/Header/Header"
@@ -7,20 +7,31 @@ import styles from "../PlaylistOfTheDay/PlaylistOfTheDay.module.css"
 import Skeleton from "../../components/Skeletons/SkeletonCenterBlock";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { Title } from "../../components/Themes/Title";
+import { useParams } from "react-router-dom";
+import { get } from "../../Utils/Fetch";
+import { setTracks } from "../../Redux/Track/TracksActions";
+import { connect } from "react-redux";
 
 
-function PlaylistOfTheDay() { 
+// eslint-disable-next-line react/prop-types
+function PlaylistOfTheDay({setTracks}) { 
     const {theme} = useTheme();
-
-
+    const {selectionId} = useParams();
+    const [title, setTitle] = useState("");
     // Инициализация скелетона
     const [isLoadingSkeleton, setIsLoadingSkeleton] = React.useState(true);
 
     useEffect(() => {
         setTimeout (() => setIsLoadingSkeleton(false), 1000);
+        getSelection()
     }, [])
-    console.log(theme);
-    
+
+    const getSelection = async () => {
+        const {json} = await get(`/catalog/selection/${selectionId}/`)
+        setTracks(json.items)
+        setTitle(json.name)
+    }
+
     return ( 
         isLoadingSkeleton ? <Skeleton /> :
         <div style={{backgroundColor:theme.background}} className={moduleStyle["App"]}>  
@@ -28,12 +39,12 @@ function PlaylistOfTheDay() {
             <section className={styles["main"]}>          
                 <BurgerMenu/>
                 <section className={styles["main_flex"]}>
-                    <Title theme={theme}>Плейлист дня</Title>
+                    <Title theme={theme}>{title}</Title>
                     <CenterBlock/>
                 </section>
             </section>
         </div>
     )
 } 
- 
-export default PlaylistOfTheDay; 
+  
+export default connect(null, {setTracks})(PlaylistOfTheDay)

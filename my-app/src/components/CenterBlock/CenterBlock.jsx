@@ -1,5 +1,4 @@
-// import React, {useEffect} from "react";
-import React, { useEffect } from "react";
+import React from "react";
 import Track from "../Track/Track";
 import styles from "./CenterBlock.module.css";
 import { Fragment } from "react";
@@ -8,20 +7,23 @@ import { AudioPlayer } from "../AudioPlayer/AudioPlayer";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { Subtitle } from "../Themes/Subtitle";
 import { Buttons } from "../Themes/Buttons";
-import { get } from "../../Utils/Fetch";
+import { get, post, remove } from "../../Utils/Fetch";
 import { connect } from "react-redux";
-import { setTracks, nextTrack, prevTrack } from "../../Redux/Track/TracksActions";
+import { setTracks, setTrack, nextTrack, prevTrack } from "../../Redux/Track/TracksActions";
 
 
 
 
-function CenterBlock({ setTracks, tracks, track, nextTrack, prevTrack }) {
+function CenterBlock({ tracks, setTrack, track, user, nextTrack, prevTrack }) {
+
     CenterBlock.propTypes = {
         setTracks: func,
         tracks: array,
         track: object,
         nextTrack: func,
-        prevTrack:func
+        prevTrack:func,
+        setTrack:func,
+        user:object,
     }
 
     const {theme} = useTheme()
@@ -33,14 +35,21 @@ function CenterBlock({ setTracks, tracks, track, nextTrack, prevTrack }) {
 // инициализация закрытых пунктов меню год
     const [isSearchMenuYearOpen, setSearchMenuYearOpen] = React.useState(false)
 
-    useEffect(()=> {
-        onGetAllTrack()
-        
-    }, [])
 
-    const onGetAllTrack = async() => {
-        const {json} = await get("/catalog/track/all/")
-        setTracks(json);
+    const onAddToFavorite = async () => {
+        const {error} = await post(`/catalog/track/${track.id}/favorite/`, null, true)
+        if (!error) {
+            const {json} = await get(`/catalog/track/${track.id}/`)
+            setTrack(json)
+        }
+    }
+
+    const onRemoveFromFavorite = async () => {
+        const {error} = await remove(`/catalog/track/${track.id}/favorite/`, null, true)
+        if (!error) {
+            const {json} = await get(`/catalog/track/${track.id}/`)
+            setTrack(json)
+        }
     }
 
     // год открыт закрыт
@@ -162,8 +171,11 @@ function CenterBlock({ setTracks, tracks, track, nextTrack, prevTrack }) {
                 <AudioPlayer 
                     key={track.track_file} 
                     audioSource={new Audio(track.track_file)}
+                    isLiked={track.stared_user.some(u => u.id === user.user_id)}
                     onNext={nextTrack}
                     onPrev={prevTrack}
+                    onLike={onAddToFavorite}
+                    onDislike={onRemoveFromFavorite}
                 />
             </div>
             
@@ -172,8 +184,9 @@ function CenterBlock({ setTracks, tracks, track, nextTrack, prevTrack }) {
 }
 
 const gatState = (state) => ({
+    user: state.users.user,
     track: state.tracks.track,
     tracks: state.tracks.tracks
 })
 
-export default connect(gatState, {setTracks, nextTrack, prevTrack})(CenterBlock)
+export default connect(gatState, {setTracks, setTrack, nextTrack, prevTrack})(CenterBlock)

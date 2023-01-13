@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from "./Login.module.css";
 import { Fragment } from "react";
-
+import { connect} from "react-redux";
 // import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import stylesApp from "../../App.module.css";
@@ -9,8 +9,11 @@ import { post } from "../../Utils/Fetch";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../Consts/Backups";
 import Logo from "../../components/Logo/Logo";
 // import { BASE_URL } from "../../Consts/API";
+import { setUser } from "./../../Redux/Users/UsersAction"
+import { parseJwt } from "../../Utils/Jwt";
 
-function Login () {
+// eslint-disable-next-line react/prop-types
+function Login ({setUser}) {
     const history = useHistory();
     const [email, setEmail] = useState(""); 
     const [password, setPassword] = useState("");
@@ -25,6 +28,7 @@ function Login () {
         if (code===200) {
             localStorage.setItem(REFRESH_TOKEN, json.refresh)
             localStorage.setItem(ACCESS_TOKEN, json.access)
+            setUser(parseJwt(json.access))
             history.push("/music")
         } 
     }
@@ -57,4 +61,4 @@ function Login () {
         </Fragment>
     )
 }
-export default Login
+export default connect(null, {setUser})(Login)

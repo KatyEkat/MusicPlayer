@@ -1,22 +1,43 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styles from "./NavigationMenu.module.css";
 import { Link } from "react-router-dom";
+import { get } from "../../Utils/Fetch";
+import { connect } from "react-redux";
+import { setSelections } from "../../Redux/Track/TracksActions";
+import { array, func } from "prop-types";
 
-function NavigationMenu() {
+
+function NavigationMenu({selections, setSelections}) {
+
+    NavigationMenu.propTypes = {
+        selections: array,
+        setSelections: func
+    }
+
+    useEffect(() => {
+        getSelections()
+    },[])
+
+    const getSelections = async () => {
+        const {json} = await get("/catalog/selection/")
+        setSelections(json)
+    }
+
     return (
         <div className={styles["navigationMenu"]}>
-            <Link className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_daily_playList}`} to = "/playlist_of_the_day">
-            </Link>
-
-
-            <Link className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_top_100}`} to = "/top_100">
-            </Link>     
-
-
-            <Link className={`${styles.navigationMenu__link} ${styles.navigationMenu__link_indy}`} to = "/indy_playlist">
-            </Link>   
+            {selections.map(selection => 
+                <Link 
+                    key={selection.id}
+                    className={styles.navigationMenu__link} 
+                    to={`/selection/${selection.id}`}>
+                    {selection.name}
+                </Link>
+            )}
         </div>
     );
 }
 
-export default NavigationMenu;
+const getState = (state) => ({
+    selections:state.tracks.selections
+})
+export default connect(getState, {setSelections})(NavigationMenu)

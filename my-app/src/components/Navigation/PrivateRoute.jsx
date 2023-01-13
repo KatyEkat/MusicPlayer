@@ -9,9 +9,9 @@ export const PrivateRoute = ({ component: Component, ...props}) => {
 
     return (
         <Fragment>
-        <Route render={ () => 
+        <Route {...props} render={ (routeProps) => 
              token
-             ? <Component {...props}/> 
+             ? <Component {...routeProps}/> 
              : <Redirect to={{pathname: "/login"}} /> 
         } />
         </Fragment>

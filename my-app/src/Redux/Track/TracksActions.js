@@ -1,4 +1,4 @@
-import { NEXT_TRACK, PREV_TRACK, SET_TRACK, SET_TRACKS } from "./ActionTypes";
+import { NEXT_TRACK, PREV_TRACK, SET_SELECTIONS, SET_TRACK, SET_TRACKS } from "./ActionTypes";
 
 
 export const setTracks = (payload) => ({
@@ -18,5 +18,10 @@ export const prevTrack = (payload) => ({
 
 export const nextTrack = (payload) => ({
     type: NEXT_TRACK,
+    payload
+})
+
+export const setSelections = (payload) => ({
+    type: SET_SELECTIONS,
     payload
 })

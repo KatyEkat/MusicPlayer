@@ -113,7 +113,7 @@ button{
 }
 
 .like_btn{
-    background-image: url(../../images/icon/like.svg);
+    background-image: url(../../images/icon/likeActive.svg);
     width: 16px;
     height: 14px;
     margin-left: 32px;
@@ -121,34 +121,34 @@ button{
 }
 
 .like_btn:hover{
-    background-image: url(../../images/icon/likeHover.svg);
-    width: 16px;
-    height: 14px;
+    background-image: url(../../images/icon/dislikeActive.svg);
 }
-.like_btn:active{
+/* .like_btn:active{
     background-image: url(../../images/icon/likeActive.svg);
     width: 16px;
     height: 14px;
-}
+} */
 
 .dislike_btn{
-    background-image: url(../../images/icon/dislike.svg);
+    background-image: url(../../images/icon/like.svg);
     width: 19px;
     height: 17px;
     background-repeat: no-repeat;
+    margin-left: 32px;
+    margin-right: 39px;
 }
-.dislike_btn:hover{
+/* .dislike_btn:hover{
     background-image: url(../../images/icon/dislikeHover.svg);
     width: 19px;
     height: 17px;
     background-repeat: no-repeat;
-}
-.dislike_btn:active{
+} */
+/* .dislike_btn:active{
     background-image: url(../../images/icon/dislikeActive.svg);
     width: 19px;
     height: 17px;
     background-repeat: no-repeat;
-}
+} */
 
 .volume_btn{
     margin-right: 36px;

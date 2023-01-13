@@ -1,4 +1,32 @@
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../Consts/Backups";
 import {BASE_URL} from "./../Consts/API";
+import { parseJwt } from "./Jwt";
+
+const getAccessToken = async () => {
+  const token = localStorage.getItem(ACCESS_TOKEN);
+  const refresh = localStorage.getItem(REFRESH_TOKEN);
+
+  if(!token || !refresh){
+    return null
+  }
+
+  const tokenInfo = parseJwt(token);
+  const now = Date.now() / 1000;
+
+  if (now >= tokenInfo.exp){
+    const response = await fetch(`${BASE_URL}/user/token/refresh/`, {
+      method:"POST", 
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({refresh})
+    })
+    const json = await response.json()
+    localStorage.setItem(ACCESS_TOKEN, json.access)
+    return json.access
+  }
+  return token
+}
 
 
 const client = async (
@@ -8,12 +36,12 @@ const client = async (
   withAuth = false,
   customConfig = {},
 ) => {
-//   const token = localStorage.getItem(TOKEN_BACKUP);
+  const token = await getAccessToken();
   let error = false;
   let json;
 
   const headers = withAuth
-    ? {'Content-Type': 'application/json',}
+    ? {'Content-Type': 'application/json', Authorization: `Bearer ${token}`}
     : {'Content-Type': 'application/json'};
 
   const config = {

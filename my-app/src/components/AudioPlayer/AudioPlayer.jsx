@@ -8,12 +8,15 @@ import { AudioPlayerProgress } from "./AudioPlayerProgress";
 // подсказка какие аргументы передаем  внутрь компонента.
 type Props = {
     audioSource: HTMLAudioElement;
+    isLiked: boolean;
     onNext: () => void;
     onPrev: () => void;
+    onLike: () => Promise<void>;
+    onDislike: () => Promise<void>;
 }
 
 // аннотация 
-export const AudioPlayer = ({audioSource, onNext, onPrev}: Props) => {
+export const AudioPlayer = ({audioSource, onNext, onPrev, onLike, onDislike, isLiked}: Props) => {
 
     
     const audio = useRef(audioSource);
@@ -91,12 +94,14 @@ export const AudioPlayer = ({audioSource, onNext, onPrev}: Props) => {
                     <button className={loop ? styles["loop_active"] : styles["loop"]} onClick={onLoop}  />
 
                     <button className={styles["shuffle_track"]}> </button>
-                    <button className={styles["like_btn"]}> </button>
-                    <button className={styles["dislike_btn"]}> </button>
 
-                    <p style={{color: "grey"}}>{volume * 100} </p>
+                    {
+                        isLiked
+                            ? <button className={styles["like_btn"]} onClick={onDislike} > </button>
+                            : <button className={styles["dislike_btn"]} onClick={onLike} > </button>
+                    }
                     
-                    <input className={styles["volume_btn"]} type="range" min={0} max={1} step={0.1} onChange={onVolumeInput}/>
+                    <input className={styles["volume_btn"]} type="range" value={volume} min={0} max={1} step={0.1} onChange={onVolumeInput}/>
 
                 </div>
             </div>

@@ -7,9 +7,13 @@ import styles from "../FavoriteTracks/FavoriteTracks.module.css";
 import Skeleton from "../../components/Skeletons/SkeletonCenterBlock";
 import { useTheme } from "../../Providers/ThemeProvider";
 import { Title } from "../../components/Themes/Title";
+import { get } from "../../Utils/Fetch";
+import { connect } from "react-redux";
+import { setTracks } from "../../Redux/Track/TracksActions";
 
 
-function FavoriteTracks() { 
+// eslint-disable-next-line react/prop-types
+function FavoriteTracks({setTracks}) { 
     const {theme} = useTheme();
 
 
@@ -18,9 +22,15 @@ function FavoriteTracks() {
 
     useEffect(() => {
         setTimeout (() => setIsLoadingSkeleton(false), 1000);
+        getAllFavoriteTracks()
     }, [])
-    console.log(theme);
-    
+
+    const getAllFavoriteTracks = async ( ) => {
+        const {json} = await get("/catalog/track/favorite/all/", true)
+        setTracks(json)
+    } 
+
+
     return ( 
         isLoadingSkeleton ? <Skeleton /> :
         <div style={{backgroundColor:theme.background}} className={moduleStyle["App"]}>  
@@ -36,4 +46,5 @@ function FavoriteTracks() {
     )
 } 
  
-export default FavoriteTracks; 
+
+export default connect(null, {setTracks})(FavoriteTracks)

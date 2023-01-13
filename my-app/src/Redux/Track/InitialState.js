@@ -13,5 +13,6 @@ export const TRACKS_INITIAL_STATES = {
         "stared_user": [
             
         ]
-    }
+    },
+    selections:[]
 }
