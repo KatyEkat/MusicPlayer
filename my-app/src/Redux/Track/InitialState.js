@@ -1,5 +1,6 @@
 export const TRACKS_INITIAL_STATES = {
     tracks:[],
+    filteredTracks:[],
     track:{ 
         "id": 0,
         "name": "",
@@ -11,7 +12,7 @@ export const TRACKS_INITIAL_STATES = {
         "logo": null,
         "track_file": null,
         "stared_user": [
-            
+        
         ]
     },
     selections:[]

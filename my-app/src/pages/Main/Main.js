@@ -41,7 +41,7 @@ function Main({setTracks}) {
                 <BurgerMenu/>
                 <section className={styles["main_flex"]}>
                     <Title theme={theme}>Треки</Title>
-                    <CenterBlock/>
+                    <CenterBlock allowFilter={true}/>
                 </section>
                 <NavigationMenu/>
             </section>

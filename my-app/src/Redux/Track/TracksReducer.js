@@ -1,4 +1,4 @@
-import { NEXT_TRACK, PREV_TRACK, SET_SELECTIONS, SET_TRACK, SET_TRACKS } from "./ActionTypes";
+import { NEXT_TRACK, PREV_TRACK, SET_FILTERED_TRACKS, SET_SELECTIONS, SET_TRACK, SET_TRACKS } from "./ActionTypes";
 import { nextTrackController, prevTrackController } from "./Controllers/Tracks";
 import { TRACKS_INITIAL_STATES } from "./InitialState";
 
@@ -12,6 +12,8 @@ export const tracksReducer = (state=TRACKS_INITIAL_STATES, action) => {
             return nextTrackController(state)
         case PREV_TRACK:
             return prevTrackController(state)
+        case SET_FILTERED_TRACKS:
+            return {...state, filteredTracks:action.payload}
         case SET_SELECTIONS:
             return {...state, selections:action.payload}
         default:
