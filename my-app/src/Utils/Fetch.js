@@ -22,12 +22,33 @@ const getAccessToken = async () => {
       body: JSON.stringify({refresh})
     })
     const json = await response.json()
-    localStorage.setItem(ACCESS_TOKEN, json.access)
+
+    if (!response.ok) {
+      removeTokens();
+      window.dispatchEvent(new Event("storage"))
+      return;
+    }
+
+    if (json.access) {
+      localStorage.setItem(ACCESS_TOKEN, json.access)
+    }
+
     return json.access
   }
   return token
 }
 
+const removeTokens = () => {
+  localStorage.removeItem(ACCESS_TOKEN);
+  localStorage.removeItem(REFRESH_TOKEN);
+}
+
+export const isAuthTokenExists = () => {
+  const accessToken = localStorage.getItem(ACCESS_TOKEN);
+  const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+
+  return Boolean(accessToken && refreshToken);
+};
 
 const client = async (
   endpoint,

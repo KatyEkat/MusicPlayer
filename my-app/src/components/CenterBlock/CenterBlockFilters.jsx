@@ -8,6 +8,7 @@ import { useMemo } from "react";
 import { array, func } from 'prop-types';
 import { setFilteredTracks } from "../../Redux/Track/TracksActions";
 import { useEffect } from "react";
+import { onlyUnique } from "../../Utils/Utils";
 
 
 const CenterBlockFilters = ({ tracks, setFilteredTracks, filteredTracks }) => {
@@ -28,8 +29,8 @@ const CenterBlockFilters = ({ tracks, setFilteredTracks, filteredTracks }) => {
     const [isSearchMenuYearOpen, setSearchMenuYearOpen] = React.useState(false)
 
 
-    const authorsList = useMemo(() => tracks.map(track => track.author), [tracks])
-    const genresList = useMemo(() => tracks.map(track => track.genre), [tracks])
+    const authorsList = useMemo(() => tracks.map(track => track.author).filter(onlyUnique), [tracks])
+    const genresList = useMemo(() => tracks.map(track => track.genre).filter(onlyUnique), [tracks])
 
     useEffect(() => {
         filterTracks()
