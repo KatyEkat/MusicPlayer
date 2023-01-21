@@ -3,6 +3,11 @@
     display: flex;
     
 }
+
+.main_flex{
+    display: flex;
+    flex-direction: column;
+}
 .centerBlock__title {
     font-family: 'Roboto';
     font-style: normal;

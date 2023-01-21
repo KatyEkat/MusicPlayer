@@ -18,6 +18,10 @@
     color: #9A48F1;
     border: 1px solid #9A48F1;
 }
+.centerBlock__filter_btn:active{
+    color: #9A48F1;
+    border: 1px solid #9A48F1;
+}
 
 .centerblock__playlist {
     display: flex;

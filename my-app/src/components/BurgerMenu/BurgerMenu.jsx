@@ -29,8 +29,8 @@ function BurgerMenu() {
 
     return (
         <div className={styles["burger-menu"]}>
-            {/* По клику на бургер открывается фрагмент с меню с лева */}
-            <button className={styles["burger-menu__close-btn"]} type="button" onClick = {toggleBurgerMenuOpen}/>
+            <button className={styles[`burger-menu__close-btn_${themeMode}`]} type="button" onClick = {toggleBurgerMenuOpen}/>
+
                  {isBurgerMenuOpen && (
                     <Fragment>
   

@@ -11,7 +11,6 @@
     width: 250px;
     height: 150px;
     border: none;
-    background-image: url(../../images/icon/navigationMenu.png);
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -21,4 +20,14 @@
     text-align: center;
     padding-top: 59px;
     color: #FFFFFF;
+}
+
+.navigationMenu__link_daily_playList {
+ background-image: url(../../images/playlist01.png);
+}
+.navigationMenu__link_top_100{
+    background-image: url(../../images/playlist02.png);
+}
+.navigationMenu__link_indy {
+    background-image: url(../../images/playlist03.png);
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect} from "react"; 
 import moduleStyle from './../../App.module.css';
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import Header from "../../components/Header/Header"
@@ -17,8 +17,7 @@ import { connect } from "react-redux";
 function PlaylistOfTheDay({setTracks}) { 
     const {theme} = useTheme();
     const {selectionId} = useParams();
-    const [title, setTitle] = useState("");
-    // Инициализация скелетона
+
     const [isLoadingSkeleton, setIsLoadingSkeleton] = React.useState(true);
 
     useEffect(() => {
@@ -29,7 +28,7 @@ function PlaylistOfTheDay({setTracks}) {
     const getSelection = async () => {
         const {json} = await get(`/catalog/selection/${selectionId}/`)
         setTracks(json.items)
-        setTitle(json.name)
+
     }
 
     return ( 
@@ -39,7 +38,7 @@ function PlaylistOfTheDay({setTracks}) {
             <section className={styles["main"]}>          
                 <BurgerMenu/>
                 <section className={styles["main_flex"]}>
-                    <Title theme={theme}>{title}</Title>
+                    <Title theme={theme}>Плейлист дня</Title>
                     <CenterBlock/>
                 </section>
             </section>

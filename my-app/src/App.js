@@ -6,6 +6,8 @@ import Main from "./pages/Main/Main"
 import NotFound from "./pages/NotFound/NotFound";
 import Registration from "./pages/Registration/Registration";
 import PlayListOfTheDay from "./pages/PlaylistOfTheDay/PlaylistOfTheDay";
+import Top100 from "./pages/Top100/Top100";
+import IndyPlaylist from "./pages/IndyPlaylist/IndyPlaylist";
 import { PrivateRoute } from "./components/Navigation/PrivateRoute";
 import { PublicRoute } from "./components/Navigation/PublicRoute";
 import FavoriteTracks from "./pages/FavoriteTracks/FavoriteTracks";
@@ -38,7 +40,9 @@ function App() {
           <PublicRoute  exact path={"/login"} component={Login}/>
           <PublicRoute exact path={"/registration"} component={Registration}/>
           <PrivateRoute exact path={"/music"} component={Main}/>
-          <PrivateRoute exact path={"/selection/:selectionId"} component={PlayListOfTheDay}/>
+          <PrivateRoute exact path={"/playListOfTheDay"} component={PlayListOfTheDay}/>
+          <PrivateRoute exact path={"/top100"} component={Top100}/> 
+          <PrivateRoute exact path={"/indyPlaylist"} component={IndyPlaylist}/> 
           <PrivateRoute exact path={"/favorite"} component={FavoriteTracks}/>
           <Route exact path={"*"} component={NotFound}/>
           
