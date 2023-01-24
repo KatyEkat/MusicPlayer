@@ -1,0 +1,156 @@
+.audio_player_styles{
+    display: flex;
+    margin-top: 10px;
+}
+
+
+button{
+    background: transparent;
+    border: none;
+}
+.play_btn{
+    width: 22px;
+    height: 20px;
+    background-image: url(../../images/icon/play.svg);
+    background-repeat: no-repeat;
+}
+.play_btn:hover{
+    background-image: url(../../images/icon/playHover.svg);
+    background-repeat: no-repeat;
+}
+.play_btn:active{
+    background-image: url(../../images/icon/playActive.svg);
+}
+
+.pause_btn{
+    width: 22px;
+    height: 20px;
+    background-image: url(../../images/icon/pause.svg);
+    background-repeat: no-repeat;
+}
+.pause_btn:hover{
+    background-image: url(../../images/icon/pauseHover.svg);
+    background-repeat: no-repeat;
+}
+
+.pause_btn:active{
+    background-image: url(../../images/icon/pauseActive.svg);
+    background-repeat: no-repeat;
+}
+
+.loop{
+    width: 24px;
+    height: 20px;   
+    background-image: url(../../images/icon/loop.svg);
+    background-repeat: no-repeat;
+}
+
+.loop:hover{
+    background-image: url(../../images/icon/loopHover.svg);
+    background-repeat: no-repeat;
+}
+
+.loop_active{
+    width: 24px;
+    height: 20px;   
+    background-image: url(../../images/icon/loopAcive.svg);
+    background-repeat: no-repeat;
+}
+
+.music_progress{
+    width: 100%;
+    background-color: #2E2E2E; 
+}
+
+.previous_track{
+    background-image: url(../../images/icon/prev.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 36px;
+    margin-right: 33px;
+}
+
+.previous_track:hover{
+    background-image: url(../../images/icon/prevLight.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 36px;
+    margin-right: 33px;
+}
+
+.next_track{
+    background-image: url(../../images/icon/next.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.next_track:hover{
+    background-image: url(../../images/icon/nextLight.svg);
+    width: 15px;
+    height: 14px;
+    margin-left: 33px;
+    margin-right: 40px;
+}
+
+.shuffle_track{
+    background-image: url(../../images/icon/shuffle.svg);
+    width: 24px;
+    height: 20px; 
+    background-repeat: no-repeat;
+    margin-left: 35px;
+}
+.shuffle_track:hover{
+    background-image: url(../../images/icon/shuffleHover.svg);
+    width: 24px;
+    height: 20px; 
+}
+.shuffle_track:active{
+    background-image: url(../../images/icon/shuffleActive.svg);
+    width: 24px;
+    height: 20px; 
+}
+
+.like_btn{
+    background-image: url(../../images/icon/likeActive.svg);
+    width: 16px;
+    height: 14px;
+    margin-left: 32px;
+    margin-right: 39px;
+}
+
+.like_btn:hover{
+    background-image: url(../../images/icon/dislikeActive.svg);
+}
+/* .like_btn:active{
+    background-image: url(../../images/icon/likeActive.svg);
+    width: 16px;
+    height: 14px;
+} */
+
+.dislike_btn{
+    background-image: url(../../images/icon/like.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+    margin-left: 32px;
+    margin-right: 39px;
+}
+/* .dislike_btn:hover{
+    background-image: url(../../images/icon/dislikeHover.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+} */
+/* .dislike_btn:active{
+    background-image: url(../../images/icon/dislikeActive.svg);
+    width: 19px;
+    height: 17px;
+    background-repeat: no-repeat;
+} */
+
+.volume_btn{
+    margin-right: 36px;
+    margin-left: 950px;
+}

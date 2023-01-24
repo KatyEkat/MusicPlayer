@@ -1,37 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App'; 
+import reducer from "./Redux/Reducers";
+import { Provider } from "react-redux";
 
-/* 
-const burgeritem = document.querySelector(".menu__list");
-const burgerMenu = document.querySelector(".nav__burger");
+import { Fragment } from 'react';
+import { ThemeProvider } from './Providers/ThemeProvider';
+import { createStore } from "redux";
 
-
-burgerMenu.addEventListener("click",burgerHandler);
-
-function burgerHandler () {
- burgeritem.classList.toggle("open");
-}
-
- */
-
-
-
-
-
-
-
-
-
-
-
-
+const store = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Fragment>
+
+  <Provider store={store}>
+    <ThemeProvider>
+      
+      <App />
+
+    </ThemeProvider>
+  </Provider>
+
+
+  </Fragment>
+
 );
 
 

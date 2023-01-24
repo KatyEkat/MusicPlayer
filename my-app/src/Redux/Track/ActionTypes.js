@@ -1,0 +1,7 @@
+export const SET_TRACKS = "SET_TRACKS"
+export const SET_TRACK = "SET_TRACK"
+export const NEXT_TRACK = "NEXT_TRACK"
+export const PREV_TRACK = "PREV_TRACK"
+export const SET_FILTERED_TRACKS = "SET_FILTERED_TRACKS"
+
+export const SET_SELECTIONS = "SET_SELECTIONS"

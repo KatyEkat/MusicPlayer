@@ -1,0 +1,50 @@
+.background{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+.logIn{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    width: 366px;
+    height: 439px;
+    background: #ffffff;
+    border-radius: 12px;
+    gap: 20px;
+}
+.login_input{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    width: 278px;
+    height: 52px;
+    border-color: #D0CECE;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.registration_btn{
+    width: 278px;
+    height: 52px;
+    left: 41px;
+    top: 268px;
+    background: #580EA2;
+    border-radius: 6px;
+    border: #580EA2;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+}
+.registration_btn:hover{
+    background: #3F007D;
+}
+.registration_btn:active{
+    background: #271A58;
+}

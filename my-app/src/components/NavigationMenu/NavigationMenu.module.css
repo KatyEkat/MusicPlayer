@@ -1,0 +1,33 @@
+.navigationMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+   
+    max-width: 418px;
+    padding: 210px 0 0 0;
+}
+.navigationMenu__link {
+    width: 250px;
+    height: 150px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 59px;
+    color: #FFFFFF;
+}
+
+.navigationMenu__link_daily_playList {
+ background-image: url(../../images/playlist01.png);
+}
+.navigationMenu__link_top_100{
+    background-image: url(../../images/playlist02.png);
+}
+.navigationMenu__link_indy {
+    background-image: url(../../images/playlist03.png);
+}
