@@ -1,0 +1,9 @@
+/* @import url(../fonst.css); */
+
+.header {
+    padding: 20px 90px 20px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1293px;
+}

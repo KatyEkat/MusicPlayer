@@ -1,0 +1,23 @@
+.navigationMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+   
+    max-width: 418px;
+    padding: 210px 0 0 0;
+}
+.navigationMenu__link {
+    width: 250px;
+    height: 150px;
+    border: none;
+}
+.navigationMenu__link_daily-playList {
+ background-image: url(../../images/playlist01.png);
+}
+.navigationMenu__link_top-100{
+    background-image: url(../../images/playlist02.png);
+}
+.navigationMenu__link_indy {
+    background-image: url(../../images/playlist03.png);
+}

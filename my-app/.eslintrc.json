@@ -1,7 +1,9 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "amd": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -24,6 +26,13 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": ["js", "jsx"] }],
         "react/prop-types": 0,
-        "react/destructuring-assignment": [0]
+        "react/destructuring-assignment": [0],
+        "react/react-in-jsx-scope": "off",
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "auto"
+          }
+        ]
     }
 }

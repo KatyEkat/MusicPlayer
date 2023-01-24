@@ -1,33 +1,35 @@
-import React from 'react';
-import Bar from './components/Bar';
-import CenterBlock from './components/CenterBlock';
-import Container from './components/Container';
-import Footer from './components/Footer';
-import Main from './components/Main';
-import Navigation from './components/Navigation';
-import Sidebar from './components/Sidebar';
-import Wrapper from './components/Wrapper';
-
+import React, { useEffect } from "react";
+import './App.css';
+import './components/Main/Main.css';
+import Header from './components/Header/Header';
+import CenterBlock from "./components/CenterBlock/CenterBlock";
+import NavigationMenu from "./components/NavigationMenu/NavigationMenu";
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import ContentLoader from "react-content-loader";
+import Skeleton from "../src/Skeletons/SkeletonCenterBlock";
 
 
 function App() {
-  return (
-    <div>
-      <Wrapper />
-      <div>
-        <Container />
-        <div>
-          <Main />
-            <Navigation />
-            <CenterBlock />
-            <Sidebar />
 
-        </div>
-        <Bar />
-        <Footer />
-      </div>
+      // Инициализация скелетона
+    const [isLoadingSkeleton, setIsLoadingSkeleton] = React.useState(true);
+
+    useEffect(() => {
+        setTimeout (() => setIsLoadingSkeleton(false), 1000);
+    }, [])
+
+  return (
+    isLoadingSkeleton ? <Skeleton /> :
+    <div className="App">  
+      <Header/>
+      <section className="main">          
+        <BurgerMenu/>
+        <CenterBlock/>
+        <NavigationMenu/>
+      </section>
     </div>
   );
 }
+
 
 export default App;
